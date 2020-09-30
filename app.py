@@ -1,6 +1,7 @@
 import os
 from uuid import uuid4
-import numpy,pandas
+import numpy as np
+import pandas as pd
 from flask import Flask, request, render_template, send_from_directory
 
 #Initializing Flask Web app
