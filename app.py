@@ -1,8 +1,9 @@
 import os
 from uuid import uuid4
-
+import numpy,pandas
 from flask import Flask, request, render_template, send_from_directory
 
+#Initializing Flask Web app
 app = Flask(__name__)
 # app = Flask(__name__, static_folder="images")
 
@@ -10,12 +11,15 @@ app = Flask(__name__)
 
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+#Creating a list of all the classes in the project
 classes = ['Fresh Apple','Fresh Banana','Fresh Orange','Rotten Apple','Rotten Banana','Rotten Orange']
 
+# Home Route
 @app.route("/")
 def index():
     return render_template("index.html")
 
+# Route to upload a photo
 @app.route("/upload", methods=["POST"])
 def upload():
     target = os.path.join(APP_ROOT, 'images/')
